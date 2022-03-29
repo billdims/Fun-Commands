@@ -1,0 +1,5 @@
+name: Commands
+version: '${project.version}'
+main: me.ratio.commands.Commands
+commands:
+  ping:
