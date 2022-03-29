@@ -1,5 +1,8 @@
 name: Commands
 version: '${project.version}'
 main: me.ratio.commands.Commands
+description: this is coded by billdims *BEST CODER* *NO HELP* *NO SKID*
 commands:
   ping:
+  ratio:
+  wtf:

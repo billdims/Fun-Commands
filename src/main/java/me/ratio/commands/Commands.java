@@ -9,6 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import javax.security.auth.callback.CallbackHandler;
+
 public final class Commands extends JavaPlugin {
 
     @Override
@@ -26,17 +28,33 @@ public final class Commands extends JavaPlugin {
                 }
 
                 if(target == null) {
-                    sender.sendMessage(ChatColor.DARK_RED + "This player is offline");
+                    sender.sendMessage(ChatColor.YELLOW + "This player is offline");
                     return false;
                 }
 
                 int latency = PlayerUtility.getPing(target);
 
-                if(target == (Player) sender) {
-                    sender.sendMessage(ChatColor.GRAY + "Your ping is " + ChatColor.DARK_RED + latency + "ms");
+                if(target == sender) {
+                    sender.sendMessage(ChatColor.YELLOW + "Your ping is " + ChatColor.AQUA + latency + "ms");
                 } else {
-                    sender.sendMessage(ChatColor.GRAY + target.getName() + "'s ping is" + ChatColor.DARK_RED + latency + "ms");
+                    sender.sendMessage(ChatColor.YELLOW + target.getName() + "'s ping is " + ChatColor.AQUA + latency + "ms");
                 }
+                return false;
+            }
+        });
+        this.getCommand("ratio").setExecutor(new CommandExecutor() {
+            @Override
+            public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+                sender.sendMessage(ChatColor.YELLOW + "counter " + ChatColor.AQUA + "ratio");
+                return false;
+            }
+        });
+        this.getCommand("wtf").setExecutor(new CommandExecutor() {
+            @Override
+            public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+                sender.sendMessage(ChatColor.YELLOW + "pcranaway: " + ChatColor.AQUA + "https://twitter.com/pcranaway");
+                sender.sendMessage(ChatColor.YELLOW + "Staud: " + ChatColor.AQUA + "https://twitter.com/staudgg");
+                sender.sendMessage(ChatColor.YELLOW + "billdims: " + ChatColor.AQUA + "https://twitter.com/ItsBillxd");
                 return false;
             }
         });
@@ -44,6 +62,5 @@ public final class Commands extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
     }
 }
