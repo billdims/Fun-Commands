@@ -4,5 +4,10 @@ main: me.ratio.commands.Commands
 description: this is coded by billdims *BEST CODER* *NO HELP* *NO SKID*
 commands:
   ping:
+    description: Shows player's latency
   ratio:
-  wtf:
+    description: Fun command
+  credits:
+    description: Credits
+  bc:
+    description: Broadcasts a message

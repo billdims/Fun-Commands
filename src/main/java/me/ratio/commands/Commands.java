@@ -1,5 +1,6 @@
 package me.ratio.commands;
 
+import io.github.staudlol.util.CC;
 import io.github.staudlol.util.player.PlayerUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.callback.CallbackHandler;
+import java.util.Arrays;
 
 public final class Commands extends JavaPlugin {
 
@@ -49,12 +51,22 @@ public final class Commands extends JavaPlugin {
                 return false;
             }
         });
-        this.getCommand("wtf").setExecutor(new CommandExecutor() {
+        this.getCommand("credits").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
                 sender.sendMessage(ChatColor.YELLOW + "pcranaway: " + ChatColor.AQUA + "https://twitter.com/pcranaway");
                 sender.sendMessage(ChatColor.YELLOW + "Staud: " + ChatColor.AQUA + "https://twitter.com/staudgg");
                 sender.sendMessage(ChatColor.YELLOW + "billdims: " + ChatColor.AQUA + "https://twitter.com/ItsBillxd");
+                return false;
+            }
+        });
+        this.getCommand("bc").setExecutor(new CommandExecutor() {
+            @Override
+            public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+                String message = String.join(" ", Arrays.asList(args));
+                for(Player it : Bukkit.getOnlinePlayers()){
+                    it.sendMessage(CC.translate(message));
+                }
                 return false;
             }
         });
