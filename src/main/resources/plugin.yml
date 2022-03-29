@@ -1,13 +1,15 @@
 name: Commands
 version: '${project.version}'
 main: me.ratio.commands.Commands
-description: this is coded by billdims *BEST CODER* *NO HELP* *NO SKID*
+description: developed by billdims
 commands:
   ping:
     description: Shows player's latency
   ratio:
     description: Fun command
   credits:
+    aliases: [cr]
     description: Credits
   bc:
+    aliases: [alert]
     description: Broadcasts a message

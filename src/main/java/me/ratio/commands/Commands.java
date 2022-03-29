@@ -20,9 +20,7 @@ public final class Commands extends JavaPlugin {
         this.getCommand("ping").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-//                Player player = (Player) sender;
-//                int latency = PlayerUtility.getPing(player);
-//                player.sendMessage(ChatColor.GRAY + "Your ping is " + ChatColor.DARK_RED + latency + "ms");
+
                 Player target = (Player) sender;
 
                 if(args.length >= 1) {
@@ -54,9 +52,11 @@ public final class Commands extends JavaPlugin {
         this.getCommand("credits").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+                sender.sendMessage(ChatColor.GREEN + "--------------------------------------");
                 sender.sendMessage(ChatColor.YELLOW + "pcranaway: " + ChatColor.AQUA + "https://twitter.com/pcranaway");
                 sender.sendMessage(ChatColor.YELLOW + "Staud: " + ChatColor.AQUA + "https://twitter.com/staudgg");
                 sender.sendMessage(ChatColor.YELLOW + "billdims: " + ChatColor.AQUA + "https://twitter.com/ItsBillxd");
+                sender.sendMessage(ChatColor.GREEN + "--------------------------------------");
                 return false;
             }
         });
@@ -74,5 +74,6 @@ public final class Commands extends JavaPlugin {
 
     @Override
     public void onDisable() {
+
     }
 }
