@@ -118,6 +118,7 @@ public final class Commands extends JavaPlugin {
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
                 String message = String.join(" ", Arrays.asList(args));
                 motd = CC.translate(message);
+                motd = motd.replace("\\n", "\n");
                 sender.sendMessage(ChatColor.YELLOW + "The MOTD has successfully changed to " + ChatColor.AQUA + "\"" + motd + ChatColor.AQUA + "\"");
                 return false;
             }
