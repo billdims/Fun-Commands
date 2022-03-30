@@ -13,3 +13,11 @@ commands:
   bc:
     aliases: [alert]
     description: Broadcasts a message
+  logs:
+    description: Player logs concept
+  push:
+    description: Push yourself
+  book:
+    description: You get to write anything you want in the book
+  motd:
+    description: Custom Server MOTD
