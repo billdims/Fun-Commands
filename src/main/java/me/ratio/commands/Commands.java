@@ -98,7 +98,7 @@ public final class Commands extends JavaPlugin {
             @Override
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
                 Player player = (Player) sender;
-                player.setVelocity(player.getEyeLocation().toVector().add(new Vector(0.25, 0.25, 0.25)));
+                player.setVelocity(player.getEyeLocation().toVector().add(new Vector(0.15, 0.15, 0.15)));
                 player.sendMessage(ChatColor.YELLOW + "Successfully pushed " + ChatColor.AQUA + player.getName());
                 return false;
             }
@@ -116,7 +116,7 @@ public final class Commands extends JavaPlugin {
         this.getCommand("motd").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-                String message = String.join(" ", Arrays.asList(args));
+                String message = String.join("", Arrays.asList(args));
                 motd = CC.translate(message);
                 motd = motd.replace("\\n", "\n");
                 sender.sendMessage(ChatColor.YELLOW + "The MOTD has successfully changed to " + ChatColor.AQUA + "\"" + motd + ChatColor.AQUA + "\"");
@@ -130,6 +130,14 @@ public final class Commands extends JavaPlugin {
                 event.setMotd(motd);
             }
         }, this);
+
+        this.getCommand("comver").setExecutor(new CommandExecutor() {
+            @Override
+            public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+                sender.sendMessage(ChatColor.YELLOW + "The server is currently running " + ChatColor.AQUA + "Commands 1.0.0" + ChatColor.YELLOW + " developed by " + ChatColor.AQUA + "billdims");
+                return false;
+            }
+        });
     }
 
     @Override

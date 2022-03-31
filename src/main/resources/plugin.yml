@@ -21,3 +21,5 @@ commands:
     description: You get to write anything you want in the book
   motd:
     description: Custom Server MOTD
+  comver:
+    description: Shows the Commands version
