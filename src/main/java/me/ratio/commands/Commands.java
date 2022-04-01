@@ -1,6 +1,7 @@
 package me.ratio.commands;
 
 import io.github.staudlol.util.CC;
+import io.github.staudlol.util.bukkit.BukkitLogger;
 import io.github.staudlol.util.player.PlayerUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -27,24 +28,25 @@ public final class Commands extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        BukkitLogger.sendMessage(ChatColor.YELLOW + "Commands has been " + ChatColor.GREEN + "enabled");
         this.getCommand("ping").setExecutor(new CommandExecutor() {
             @Override
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
                 Player target = (Player) sender;
 
-                if(args.length >= 1) {
+                if (args.length >= 1) {
                     target = Bukkit.getPlayer(args[0]);
                 }
 
-                if(target == null) {
+                if (target == null) {
                     sender.sendMessage(ChatColor.YELLOW + "This player is offline");
                     return false;
                 }
 
                 int latency = PlayerUtility.getPing(target);
 
-                if(target == sender) {
+                if (target == sender) {
                     sender.sendMessage(ChatColor.YELLOW + "Your ping is " + ChatColor.AQUA + latency + "ms");
                 } else {
                     sender.sendMessage(ChatColor.YELLOW + target.getName() + "'s ping is " + ChatColor.AQUA + latency + "ms");
@@ -78,7 +80,7 @@ public final class Commands extends JavaPlugin {
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
                 String message = String.join(" ", Arrays.asList(args));
 
-                for(Player it : Bukkit.getOnlinePlayers()){
+                for (Player it : Bukkit.getOnlinePlayers()) {
                     it.sendMessage(CC.translate(message));
                 }
                 return false;
@@ -126,7 +128,7 @@ public final class Commands extends JavaPlugin {
 
         this.getServer().getPluginManager().registerEvents(new Listener() {
             @EventHandler
-            public void onMotd(ServerListPingEvent event){
+            public void onMotd(ServerListPingEvent event) {
                 event.setMotd(motd);
             }
         }, this);
@@ -142,5 +144,6 @@ public final class Commands extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        BukkitLogger.sendMessage(ChatColor.YELLOW + "Commands has been " + ChatColor.RED + "disabled");
     }
 }
